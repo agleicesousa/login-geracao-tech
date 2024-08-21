@@ -1,9 +1,22 @@
+import React, { useState, useRef } from 'react';
 import logoPadrao from '../assets/images/logo-padrao.png';
 import logoBranca from '../assets/images/logo-branca.png';
-import background from '../assets/videos/background.mp4';
 import loginbg from '../assets/images/loginbg.png';
+import background from '../assets/videos/background.mp4';
 
 const Login = () => {
+    const [isMuted, setIsMuted] = useState(true);
+    const videoRef = useRef(null);
+
+    const handleMuteToggle = () => {
+        setIsMuted(prev => {
+            const newMutedState = !prev;
+            if (videoRef.current) {
+                videoRef.current.muted = newMutedState;
+            }
+            return newMutedState;
+        });
+    };
 
     return (
         <div className="h-screen flex justify-center items-center bg-cover bg-center" style={{ backgroundImage: `url(${loginbg})` }}>
@@ -23,14 +36,15 @@ const Login = () => {
                         <div className="mbu flex items-center justify-between mb-4">
                             <label htmlFor="rememberusername" className="flex items-center text-sm cursor-pointer">
                                 <input type="checkbox" name="rememberusername" id="rememberusername" value="1" className="hidden" />
-                                <span
-                                    className="custom-checkbox w-5 h-5 border-2 border-blue-400 rounded-full mr-2 bg-white flex items-center justify-center transition-colors">
+                                <span className="custom-checkbox w-5 h-5 border-2 border-blue-400 rounded-full mr-2 bg-white flex items-center justify-center transition-colors">
+                                    <div className={`w-3.5 h-3.5 rounded-full bg-blue-400 ${document.getElementById('rememberusername')?.checked ? 'block' : 'hidden'}`}></div>
                                 </span>
                                 Lembrar meu acesso
                             </label>
-                            <a href="/" className="text-sm text-blue-600 underline"> Esqueceu a senha?</a>
+                            <a href="/" className="text-sm text-blue-600 underline">Esqueceu a senha?</a>
                         </div>
-                        <button type="submit" className="w-full mb-5 p-3 bg-blue-600 text-white text-base font-semibold rounded-full cursor-pointer transition-colors hover:bg-blue-700">
+                        <button type="submit" 
+                            className="w-full mb-5 p-3 bg-blue-600 text-white text-base font-semibold rounded-full cursor-pointer transition-colors hover:bg-blue-700">
                             Acessar
                         </button>
                     </form>
@@ -38,12 +52,17 @@ const Login = () => {
 
                 {/* Seção Direita do Login */}
                 <div className="login-right relative flex-1 flex items-center justify-center overflow-hidden">
-                    <video className="absolute inset-0 w-full h-full object-cover rounded-r-2xl opacity-60">
-                        <source src={background} type="video/mp4" />
-                        Seu navegador não suporta a tag de vídeo.
+                    <video ref={videoRef} autoPlay muted={isMuted} loop className="absolute inset-0 w-full h-full object-cover rounded-r-2xl opacity-60">
+                        <source src={background} type="video/mp4" /> Seu navegador não suporta a tag de vídeo.
                     </video>
                     <div className="absolute inset-0 bg-blue-800 bg-opacity-50 rounded-r-2xl"></div>
-                    <img src={logoBranca} alt="Logo Branca" className="logo-white absolute bottom-5 right-5" style={{ maxWidth: '170px' }} />
+                    <img src={logoBranca} alt="Logo Branca" className="logo-white absolute bottom-5 right-5" style={{ maxWidth: '170px' }}/>
+                    <button
+                        className="mute-button absolute bottom-5 left-5 text-2xl cursor-pointer z-10 text-white bg-transparent border-none rounded-full p-2"
+                        onClick={handleMuteToggle}
+                    >
+                        <i className={`fa-solid ${isMuted ? 'fa-volume-xmark' : 'fa-volume-high'}`}></i>
+                    </button>
                 </div>
             </div>
         </div>

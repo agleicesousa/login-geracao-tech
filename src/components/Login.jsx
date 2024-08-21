@@ -25,18 +25,18 @@ const Login = () => {
 
     return (
         <div className="h-screen flex justify-center items-center bg-cover bg-center" style={{ backgroundImage: `url(${loginbg})` }}>
-            <div className="login-container flex bg-white bg-opacity-80 rounded-2xl shadow-lg overflow-hidden w-4/5 max-w-[1000px] relative">
+            <div className="login-container flex bg-white bg-opacity-80 rounded-2xl shadow-lg overflow-hidden w-full max-w-[1000px] relative">
                 {/* Seção Esquerda do Login */}
-                <div className="login-left flex-1 p-10 lg:p-8 md:p-6 sm:p-4 flex flex-col justify-center">
-                    <img src={logoPadrao} alt="Logo Geração Tech" className="logo-preta w-full mb-5" />
-                    <h4 className="text-center text-xl font-semibold mb-5 md:text-lg">Acesso ao EAD do <strong>Geração Tech</strong></h4>
-                    <p className="text-base font-semibold mb-5 md:text-sm">Preencha os seus dados abaixo.</p>
-                    <form className="text-center" method="post" action="moodle_login.php">
+                <div className="login-left flex-1 p-6 sm:p-4 flex flex-col justify-center">
+                    <img src={logoPadrao} alt="Logo Geração Tech" className="logo-preta w-3/4 sm:w-full mb-5 mx-auto" />
+                    <h4 className="text-center text-lg font-semibold mb-5 sm:text-base">Acesso ao EAD do <strong>Geração Tech</strong></h4>
+                    <p className="text-center text-base font-semibold mb-5 sm:text-sm">Preencha os seus dados abaixo.</p>
+                    <form className="text-center" method="post" action="http://localhost/moodle_login.php">
                         <input type="text" id="cpf" placeholder="CPF" required maxLength="11" name="username"
-                            className="w-full mb-5 p-3 border border-blue-400 rounded-full focus:outline-none focus:border-blue-600 focus:shadow-md h-12 md:h-10"
+                            className="w-full mb-4 p-3 border border-blue-400 rounded-full focus:outline-none focus:border-blue-600 focus:shadow-md h-12 sm:h-10"
                         />
                         <input type="password" placeholder="Senha" required maxLength="30" name="password"
-                            className="w-full mb-5 p-3 border border-blue-400 rounded-full focus:outline-none focus:border-blue-600 focus:shadow-md h-12 md:h-10"
+                            className="w-full mb-4 p-3 border border-blue-400 rounded-full focus:outline-none focus:border-blue-600 focus:shadow-md h-12 sm:h-10"
                         />
                         <div className="mbu flex items-center justify-between mb-4">
                             <label htmlFor="rememberusername" className="flex items-center text-sm cursor-pointer">
@@ -59,7 +59,7 @@ const Login = () => {
                 </div>
 
                 {/* Seção Direita do Login */}
-                <div className="login-right relative flex-1 flex items-center justify-center overflow-hidden">
+                <div className="login-right relative hidden md:flex flex-1 items-center justify-center overflow-hidden">
                     <video ref={videoRef} autoPlay muted={isMuted} loop className="absolute inset-0 w-full h-full object-cover rounded-r-2xl opacity-60">
                         <source src={background} type="video/mp4" /> Seu navegador não suporta a tag de vídeo.
                     </video>

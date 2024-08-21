@@ -6,6 +6,7 @@ import background from '../assets/videos/background.mp4';
 
 const Login = () => {
     const [isMuted, setIsMuted] = useState(true);
+    const [isRemembered, setIsRemembered] = useState(false);
     const videoRef = useRef(null);
 
     const handleMuteToggle = () => {
@@ -16,6 +17,10 @@ const Login = () => {
             }
             return newMutedState;
         });
+    };
+
+    const handleRememberToggle = () => {
+        setIsRemembered(prev => !prev);
     };
 
     return (
@@ -35,9 +40,12 @@ const Login = () => {
                         />
                         <div className="mbu flex items-center justify-between mb-4">
                             <label htmlFor="rememberusername" className="flex items-center text-sm cursor-pointer">
-                                <input type="checkbox" name="rememberusername" id="rememberusername" value="1" className="hidden" />
+                                <input type="checkbox" name="rememberusername" id="rememberusername" value="1" className="hidden" 
+                                    checked={isRemembered}
+                                    onChange={handleRememberToggle} 
+                                />
                                 <span className="custom-checkbox w-5 h-5 border-2 border-blue-400 rounded-full mr-2 bg-white flex items-center justify-center transition-colors">
-                                    <div className={`w-3.5 h-3.5 rounded-full bg-blue-400 ${document.getElementById('rememberusername')?.checked ? 'block' : 'hidden'}`}></div>
+                                    <div className={`w-3.5 h-3.5 rounded-full bg-blue-400 ${isRemembered ? 'block' : 'hidden'}`}></div>
                                 </span>
                                 Lembrar meu acesso
                             </label>

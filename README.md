@@ -66,7 +66,7 @@ A página de login foi projetada para fornecer uma experiência de usuário envo
 1. **Instale um Servidor PHP:** Se ainda não tiver, instale um servidor local como [XAMPP](https://www.apachefriends.org/index.html), [MAMP](https://www.mamp.info/), ou [WAMP](https://www.wampserver.com/).
 
 2. **Coloque o Código PHP no Diretório Correto:**
-   - Para XAMPP, coloque o código PHP no diretório `htdocs` (por exemplo, `C:\xampp\htdocs\login-cover`).
+   - Para XAMPP, coloque o código PHP no diretório `htdocs` (por exemplo, `C:\xampp\htdocs\login-geracao-tech`).
    - Para MAMP, coloque o código PHP no diretório `htdocs` (por exemplo, `/Applications/MAMP/htdocs/login-geracao-tech`).
    - Para WAMP, coloque o código PHP na pasta `www` (por exemplo, `C:\wamp64\www\login-geracao-tech`).
 

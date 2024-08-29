@@ -67,8 +67,8 @@ A página de login foi projetada para fornecer uma experiência de usuário envo
 
 2. **Coloque o Código PHP no Diretório Correto:**
    - Para XAMPP, coloque o código PHP no diretório `htdocs` (por exemplo, `C:\xampp\htdocs\login-cover`).
-   - Para MAMP, coloque o código PHP no diretório `htdocs` (por exemplo, `/Applications/MAMP/htdocs/login-cover`).
-   - Para WAMP, coloque o código PHP na pasta `www` (por exemplo, `C:\wamp64\www\login-cover`).
+   - Para MAMP, coloque o código PHP no diretório `htdocs` (por exemplo, `/Applications/MAMP/htdocs/login-geracao-tech`).
+   - Para WAMP, coloque o código PHP na pasta `www` (por exemplo, `C:\wamp64\www\login-geracao-tech`).
 
 3. **Inicie o Servidor PHP:**
    - Abra o painel de controle do servidor PHP (XAMPP, MAMP ou WAMP) e inicie o Apache.
@@ -76,7 +76,7 @@ A página de login foi projetada para fornecer uma experiência de usuário envo
 4. **Configure a URL do Backend no Frontend:** Certifique-se de que o URL no formulário de login no frontend aponte para o endpoint correto do backend. Por exemplo, para XAMPP:
 
    ```html
-   <form className="text-center" method="post" action="http://localhost/login-cover/moodle_login.php">
+   <form className="text-center" method="post" action="http://localhost/login-geracao-tech/moodle_login.php">
    ```
 
 5. **Teste a Integração:** Acesse o frontend em `http://localhost:3000` e verifique se o formulário de login se comunica corretamente com o backend PHP.

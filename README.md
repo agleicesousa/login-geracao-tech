@@ -29,12 +29,12 @@ A página de login foi projetada para fornecer uma experiência de usuário envo
 - NPM ou Yarn
 - Servidor PHP (opcional para a simulação de login)
 
-### Passos para Rodar
+### Passos para Rodar o Frontend
 
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/login-cover.git
+   git clone https://github.com/agleicesousa/login-geracao-tech.git
    ```
 
 2. Navegue até a pasta do projeto:
@@ -49,22 +49,10 @@ A página de login foi projetada para fornecer uma experiência de usuário envo
    npm install
    ```
 
-   ou
-
-   ```bash
-   yarn install
-   ```
-
 4. Inicie o servidor de desenvolvimento:
 
    ```bash
    npm start
-   ```
-
-   ou
-
-   ```bash
-   yarn start
    ```
 
 5. Abra o navegador e acesse:
@@ -73,7 +61,42 @@ A página de login foi projetada para fornecer uma experiência de usuário envo
    http://localhost:3000
    ```
 
-6. Para rodar a simulação de login com PHP, certifique-se de ter um servidor PHP rodando e aponte o formulário para o script `moodle_login.php`.
+### Passos para Rodar o Backend PHP
+
+1. **Instale um Servidor PHP:** Se ainda não tiver, instale um servidor local como [XAMPP](https://www.apachefriends.org/index.html), [MAMP](https://www.mamp.info/), ou [WAMP](https://www.wampserver.com/).
+
+2. **Coloque o Código PHP no Diretório Correto:**
+   - Para XAMPP, coloque o código PHP no diretório `htdocs` (por exemplo, `C:\xampp\htdocs\login-cover`).
+   - Para MAMP, coloque o código PHP no diretório `htdocs` (por exemplo, `/Applications/MAMP/htdocs/login-cover`).
+   - Para WAMP, coloque o código PHP na pasta `www` (por exemplo, `C:\wamp64\www\login-cover`).
+
+3. **Inicie o Servidor PHP:**
+   - Abra o painel de controle do servidor PHP (XAMPP, MAMP ou WAMP) e inicie o Apache.
+
+4. **Configure a URL do Backend no Frontend:** Certifique-se de que o URL no formulário de login no frontend aponte para o endpoint correto do backend. Por exemplo, para XAMPP:
+
+   ```html
+   <form className="text-center" method="post" action="http://localhost/login-cover/moodle_login.php">
+   ```
+
+5. **Teste a Integração:** Acesse o frontend em `http://localhost:3000` e verifique se o formulário de login se comunica corretamente com o backend PHP.
+
+### Modo de Produção (Opcional)
+
+Para criar uma versão otimizada do aplicativo para produção, rode:
+
+```bash
+npm run build
+```
+
+Isso gerará uma pasta `build` com todos os arquivos otimizados. Você pode servir essa pasta usando um servidor web ou uma ferramenta como `serve`:
+
+```bash
+npm install -g serve
+serve -s build
+```
+
+A aplicação estará disponível em um endereço como `http://localhost:5000`.
 
 ## Estrutura do Projeto
 
